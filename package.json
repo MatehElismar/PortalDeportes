@@ -1,0 +1,31 @@
+{
+  "name": "portal-deportes",
+  "version": "1.0.0",
+  "description": "Trabajo De Asignacion para Desarrollo Web",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^5.4.13"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server/server.js",
+    "test": "nodemon server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatehElismar/express-template.git"
+  },
+  "keywords": [
+    "portal",
+    "deportes",
+    "node"
+  ],
+  "author": "MatehElismar & Saw Polanco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MatehElismar/express-template/issues"
+  },
+  "homepage": "https://github.com/MatehElismar/express-template#readme"
+}
