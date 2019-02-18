@@ -1,6 +1,7 @@
 'use strict'
 const express = require('express'),
 exphbs = require('express-handlebars'),
+{ consts } = require('./config'),
 enroute = require('./routes'),
 path = require('path');
 
@@ -26,7 +27,10 @@ app.engine('.hbs',exphbs({
 //routes
 enroute(app);
 
+//Initialize de DB Coneccition
+consts.db.initializeDB() 
 
+//Run the http server
 app.listen(app.get('port'), (hostname)=>{
     console.log(`Server running on ${hostname || 'localhost'}:${app.get('port')}`);
 })

@@ -8,3 +8,13 @@ En este proyectos los archivos HTML son los (.HBS)
 es asi para poder seccionarlos como en ASP con master page y luego las vistas contenido
 la master page aqui se le llama LAYOUT y se encuentra en 'client/views/layouts/main.hbs' aqui estara el nav y el footer
 el resto del codigo esta en index.hbs
+
+
+#FORMULARIO
+//ESTOS SON LOS NOMBRES QUE TIENEN QUE TENER LOS INPUTS DEL FORMULARIO
+name,
+pos:,
+avg,  
+hr:,
+rbi
+
