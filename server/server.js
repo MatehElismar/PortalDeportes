@@ -1,9 +1,9 @@
 'use strict'
 const express = require('express'),
 exphbs = require('express-handlebars'),
-{ consts } = require('./config'),
+{ consts } = require('./config'), 
 enroute = require('./routes'),
-path = require('path');
+path = require('path'); 
 
 // Initialize The Server
 const app = express();

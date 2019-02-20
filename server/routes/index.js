@@ -8,5 +8,7 @@ module.exports = (app)=>{
     })
 
     app.use('/players', require('./players'))
+    app.use('/account', require('./account'))
+    app.use('/admin', require('./admin'))
     
 }

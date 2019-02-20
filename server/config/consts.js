@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 module.exports = {
     url: 'localhost',
     db: {
-        uri: 'mongodb://localhost/baseball',
+        uri: (process.env.NODE_ENV == 'dev')? 'mongodb://localhost/baseball' : 'mongodb://mateh:junior01@ds159978.mlab.com:59978/baseball',
         initializeDB: async ()=>{
             // console.log('uri', )
             return await mongoose.connect(module.exports.db.uri, { useNewUrlParser: true })
@@ -13,7 +13,7 @@ module.exports = {
             })
             .catch(err=>{
                 console.error('There are some errors connecting to DB', err)
-            }) 
+            })  
         }
         
     }
