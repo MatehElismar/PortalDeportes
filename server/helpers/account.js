@@ -5,7 +5,7 @@ module.exports = {
     token : '',
     user: {},
     generateToken : (username)=>{ 
-        username = username.replace(' ', '')
+        username = username.replace(/\ /g, '')  
         console.log('username', username)
         var token = ''
         for (let i = 0; i < username.length * 2; i++) {
