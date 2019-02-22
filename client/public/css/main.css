@@ -4,21 +4,28 @@
     margin: 0px;
     padding: 0px; 
     font-family: 'Raleway', sans-serif;
-    background-color: rgb(241, 240, 236); 
+    background-color:#201E1D; 
     position: relative;
     box-sizing: border-box;
 }
 
-h1,h2,h3,h4,h5,h6, th{
-    text-align: center;
-    color: rgb(134, 22, 22);
-    text-shadow: 1px 1px 2px rgb(170, 108, 108); 
+
+.titulo label {
+    color:#c46b6b;
+    background-color: white; 
+    position: relative;
+    bottom: 170px;
+    left: 405px;
+    font-family: inherit ;
+    font-size:70px ;
+    
 }
 
 nav{
     width: 100%;
-    height: 60px;
-    background-color: rgb(136, 22, 22);
+    height: 180px;
+    background-color:white;
+  
 }
 tr{
     cursor:copy;
@@ -36,7 +43,10 @@ nav a{
     padding: 15px;
     float: left;
     border-radius: 34px;
-    background:  rgba(200, 22, 22, 0.5);
+    background:  black;
+    position: relative;
+    left:410px ;
+    top:120px ;
 }
 
 nav a:hover{
@@ -57,10 +67,31 @@ nav a:hover{
 }
 
 .logo img{
-    width: 35px;
-    height: 35px;
-    border: 2px solid blue;
+    width: 40px;
+    height: 40px;
+    border: 2px solid black;
     border-radius: 50%;
+}
+
+.Login img{
+    width: 45px;
+    height: 45px;
+    border: 2px solid #aa6c6c;
+    border-radius: 50%;
+    position: relative;
+    bottom:250px ;
+    left:1180px ;
+}
+
+.imglogo img{
+    width: 100px;
+    height: 160px;
+    border: 2px solid black;
+    border-radius: 10%;
+    position: relative;
+    bottom: 300px;
+    left:130px ;
+    background-color: white;
 }
 
 .container{
@@ -83,43 +114,13 @@ aside{
 
 .footer{
     clear: both;  
-    position: fixed;
+    position: relative;
     padding:  10px 30px;
-    height: 40px;
+    height: 50px;
     width: 100%;
     bottom: 0px;
-    background: #ccc;
+    background:white;
 }
-
-thead{ 
-    color: red;
-}
-
-table{
-    border: 4px solid #ccc;
-    width: 100%;
-    border-radius: 10px;
-}
-
-th{
-/*     color: yellow; */
-    background: #cccc;
-    padding:9px 10px;
-}
-
-td:hover{
-    display: block;
-    background: #ccc;;
-}
-
-td {
-    text-align: center;
-/*     padding: 10x 10px; */
-    padding: 15px;
-/*     background: black; */
-    color: green;
-}
-
 
 .feeds-container{
     margin-top: 5px; 
@@ -153,4 +154,96 @@ td {
     text-align: justify;
     clear: left;
     color: black;
+}
+
+/*Stilos del slaider automatico*/
+
+.slider {
+	width: 80%;
+	margin: auto;
+    overflow: hidden;
+    position: relative;
+    bottom: 260px;
+    
+}
+
+.slider ul {
+	display: flex;
+	padding: 0;
+	width: 400%;
+	
+	animation: cambio 20s infinite alternate linear;
+}
+
+.slider li {
+	width: 100%;
+	list-style: none;
+}
+
+.slider img {
+	width: 100%;
+}
+
+@keyframes cambio {
+	0% {margin-left: 0;}
+	20% {margin-left: 0;}
+	
+	25% {margin-left: -100%;}
+	45% {margin-left: -100%;}
+	
+	50% {margin-left: -200%;}
+	70% {margin-left: -200%;}
+	
+	75% {margin-left: -300%;}
+	100% {margin-left: -300%;}
+}
+
+.video1{
+    position: relative;
+  top: 80px;
+    left:130px ;
+}
+
+.video2{
+    position: relative;
+ padding-top: 15px;
+    left:130px ;
+}
+
+.video3{
+    position: relative;
+    padding-top: 15px;
+    left:130px ;
+}
+
+/*Stilos de la tabla*/
+.equipos{
+    background-color: white;
+    position: relative;
+    bottom: 370px;
+    margin: 150px auto;
+    width:900px;
+    font-family: Arial, Helvetica, sans-serif;
+    color:white;
+}
+table{
+    text-align: left;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,td{
+    padding: 20px;
+}
+thead{
+    background-color: #246355;
+    border-bottom: solid 5px #0f362D;
+    color:rgb(108, 209, 176);
+}
+
+tr:nth-child(even){
+    background-color: #ddd;
+}
+tr:hover td{
+    background-color: #369681;
 }
