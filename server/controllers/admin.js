@@ -2,10 +2,8 @@
 const helper = require('../helpers').account;
 
 const ctrl = {}
-ctrl.index = async (req, res)=>{
-  if(helper.token == req.params.token){
-      res.render('admin')
-  }
+ctrl.index = async (req, res)=>{ 
+  res.render('admin')
 }
 
 

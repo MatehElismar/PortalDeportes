@@ -1,5 +1,6 @@
 'use strict'
 
 module.exports = {
-    Team : require('./team')
+    Team : require('./team'),
+    Conference : require('./conference'),
 }

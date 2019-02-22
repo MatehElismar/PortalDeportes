@@ -3,10 +3,12 @@ const mongoose = require('mongoose'),
 
 const TeamSchema = new mongoose.Schema({
     name: {type: String, required: true},
-    pos: {type: Number, required: true},
-    avg: {type: Number, required: true},
-    hr: {type: Number, required: true},
-    rbi: Number
+    G: {type: Number, required: true},
+    P: {type: Number, required: true},
+    PTC: {type: Number, required: true},
+    PDL: {type: Number, required: true},
+    rach: {type: Number, required: true},
+    idConf: {type: ObjectId, required: true}
 }, { 
     toObject : {getters: true},
     toJSON : {getters: true}

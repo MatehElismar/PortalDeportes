@@ -1,4 +1,5 @@
 'use strict'
+const isLogged = require('../helpers').account.verifyUserMidleware
 
 module.exports = (app)=>{
 
@@ -14,8 +15,9 @@ module.exports = (app)=>{
     })
 
     app.use('/account', require('./account'))
-    app.use('/admin', require('./admin'))
-    app.use('/teams', require('./teams'))
+    app.use('/admin/:token', isLogged, require('./admin'))
+    app.use('/teams/:token', isLogged, require('./teams'))
+    app.use('/conferences/:token', isLogged, require('./conferences'))
     
     
 }

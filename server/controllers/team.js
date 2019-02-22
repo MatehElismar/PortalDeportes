@@ -1,6 +1,6 @@
 'use strict'
 const { teams } = require('../helpers'),
-{ Team } = require('../models');
+{ Team, Conference } = require('../models');
 
 const ctrl = {}
 ctrl.index = async (req, res)=>{
@@ -8,52 +8,37 @@ ctrl.index = async (req, res)=>{
     res.json(teams)
 }
 
-ctrl.add = async (req, res)=>{
+ctrl.add = (req, res)=>{
     var body = req.body;
-    if(teams.validate(body)){
+    teams.validate(body, res, async (value)=>{
         const newTeam = new Team({
             name: body.name,
-            pos: body.pos,
-            avg: body.avg,  
-            hr: body.hr,
-            rbi: body.rbi
+            G: body.G,
+            P: body.P,  
+            PTC: body.PTC,
+            PDL: body.PDL,
+            rach: body.rach,
+            idConf: body.idConf
         })
 
        let team = await newTeam.save()
     //    We send the team with de dbID
        res.json(team)
-    } 
-    else{
-        res.status(400).send('Hubieron problemas con los datos ingresados')
-    }
+    } )
 }
 
-ctrl.update = async (req, res)=>{
-    let body = req.body;
-    if(teams.validate(body)){
-        let team = await Team.findOne({_id: body._id})
+ctrl.update = (req, res)=>{ 
+    teams.validate(req.body, res, async (value)=>{
+        let team = await Team.findOne({_id: value._id})
         if(team){
-            // el jugador existe
-            // {{se necesita verificar las formas de interactuar con la base de datos.. en mongoose}}
-            // const toUpdateTeam = new Team({
-            //     _id: body._id,
-            //     name: body.name,
-            //     pos: body.pos,
-            //     avg: body.avg,
-            //     hr: body.hr,
-            //     rbi: body.rbi
-            // })
 
-            let updatedTeam = await Team.updateOne({_id: body._id}, body)
+            let updatedConf = await Team.updateOne({_id: value._id}, value)
             //    We send the team with the changes
-            res.json(updatedTeam)
+            res.json(updatedConf)
         }
         else
-        res.status(400).send('El jugador no existe')        
-    }
-    else{
-        res.status(400).send('Hubieron problemas con los datos ingresados')
-    }
+        res.status(400).send('Esta conferencia no existe')        
+    })
 }
 
 ctrl.delete = async (req, res)=>{
@@ -61,5 +46,43 @@ ctrl.delete = async (req, res)=>{
     res.json({'result': result})
 }
 
+//  >>        Conferences!!
+ctrl.conferences = {}
+ctrl.conferences.index = async (req, res)=>{
+    let conferences = await Conference.find()
+    res.json(conferences)
+}
+ctrl.conferences.add = (req, res)=>{ 
+    teams.validateConference(req.body, res, async (value)=>{
+        const newConference = new Conference({
+            name: value.name
+        })
+
+       let conf = await newConference.save()
+    //    We send the team with de dbID
+       res.json(conf)
+    })
+        
+}
+
+ctrl.conferences.update =  (req, res)=>{ 
+    teams.validateConference(req.body, res, async (value)=>{
+        let conf = await Conference.findOne({_id: value._id})
+        if(conf){
+            // el conferencia existe
+
+            let updatedConf = await Conference.updateOne({_id: value._id}, value)
+            //    We send the team with the changes
+            res.json(updatedConf)
+        }
+        else
+        res.status(400).send('La conferencia no existe')       
+    })
+}
+
+ctrl.conferences.delete = async (req, res)=>{
+    let result = await Conference.findOneAndRemove({_id: req.params.confID})
+    res.json({'result': result})
+}
 
 module.exports = ctrl
