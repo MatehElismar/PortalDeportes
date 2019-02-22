@@ -1,17 +1,17 @@
 'use strict'
-const { players } = require('../helpers'),
-{ Player } = require('../models');
+const { teams } = require('../helpers'),
+{ Team } = require('../models');
 
 const ctrl = {}
 ctrl.index = async (req, res)=>{
-    let players = await Player.find();
-    res.json(players)
+    let teams = await Team.find();
+    res.json(teams)
 }
 
 ctrl.add = async (req, res)=>{
     var body = req.body;
-    if(players.validate(body)){
-        const newPlayer = new Player({
+    if(teams.validate(body)){
+        const newTeam = new Team({
             name: body.name,
             pos: body.pos,
             avg: body.avg,  
@@ -19,9 +19,9 @@ ctrl.add = async (req, res)=>{
             rbi: body.rbi
         })
 
-       let player = await newPlayer.save()
-    //    We send the player with de dbID
-       res.json(player)
+       let team = await newTeam.save()
+    //    We send the team with de dbID
+       res.json(team)
     } 
     else{
         res.status(400).send('Hubieron problemas con los datos ingresados')
@@ -30,12 +30,12 @@ ctrl.add = async (req, res)=>{
 
 ctrl.update = async (req, res)=>{
     let body = req.body;
-    if(players.validate(body)){
-        let player = await Player.findOne({_id: body._id})
-        if(player){
+    if(teams.validate(body)){
+        let team = await Team.findOne({_id: body._id})
+        if(team){
             // el jugador existe
             // {{se necesita verificar las formas de interactuar con la base de datos.. en mongoose}}
-            // const toUpdatePlayer = new Player({
+            // const toUpdateTeam = new Team({
             //     _id: body._id,
             //     name: body.name,
             //     pos: body.pos,
@@ -44,9 +44,9 @@ ctrl.update = async (req, res)=>{
             //     rbi: body.rbi
             // })
 
-            let updatedPlayer = await Player.updateOne({_id: body._id}, body)
-            //    We send the player with the changes
-            res.json(updatedPlayer)
+            let updatedTeam = await Team.updateOne({_id: body._id}, body)
+            //    We send the team with the changes
+            res.json(updatedTeam)
         }
         else
         res.status(400).send('El jugador no existe')        
@@ -57,7 +57,7 @@ ctrl.update = async (req, res)=>{
 }
 
 ctrl.delete = async (req, res)=>{
-    let result = await Player.findOneAndRemove({_id: req.params._id})
+    let result = await Team.findOneAndRemove({_id: req.params._id})
     res.json({'result': result})
 }
 

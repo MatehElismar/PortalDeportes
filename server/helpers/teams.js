@@ -2,9 +2,9 @@
 'use strict'
 
 module.exports = {
-    validate : (player)=>{
+    validate : (team)=>{ 
         // After validation;
-        console.log(player)
+        console.log(team)
         return true;
     }
-}
+} 

@@ -1,5 +1,7 @@
 'use strict'
 const mongoose = require('mongoose');
+// Uses the local DB
+process.env.NODE_ENV = 'dev'
 
 module.exports = {
     url: 'localhost',

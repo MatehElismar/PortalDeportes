@@ -3,7 +3,9 @@ const express = require('express'),
 exphbs = require('express-handlebars'),
 { consts } = require('./config'), 
 enroute = require('./routes'),
-path = require('path'); 
+path = require('path');
+
+
 
 // Initialize The Server
 const app = express();
@@ -29,8 +31,10 @@ enroute(app);
 
 //Initialize de DB Coneccition
 consts.db.initializeDB() 
-
-//Run the http server
-app.listen(app.get('port'), (hostname)=>{
-    console.log(`Server running on ${hostname || 'localhost'}:${app.get('port')}`);
+.then(res=>{
+    //Run the http server
+    app.listen(app.get('port'), (hostname)=>{
+        console.log(`Server running on ${hostname || 'localhost'}:${app.get('port')}`);
+    })
 })
+

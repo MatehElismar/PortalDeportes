@@ -1,7 +1,7 @@
 'use strict'
 
 module.exports = {
-    player : require('./player'),
+    team : require('./team'),
     account: require('./account'),
     admin: require('./admin'),
 }

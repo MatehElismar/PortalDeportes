@@ -7,8 +7,8 @@ module.exports = (app)=>{
         res.render('index');
     })
 
-    app.use('/players', require('./players'))
     app.use('/account', require('./account'))
     app.use('/admin', require('./admin'))
+    app.use('/teams', require('./teams'))
     
 }
