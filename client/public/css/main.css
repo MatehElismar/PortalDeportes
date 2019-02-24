@@ -494,3 +494,65 @@ tr:hover td{
     right:180px ;
     top:70px;
 }
+
+.golden img{
+width:750px ;
+height:400px ;
+position: relative;
+bottom:230px ;
+left:220px ;
+opacity:0.6 ;
+border-radius:15px ;
+}
+
+h2{
+    bottom:250px ;
+    left: 255px;
+    color: white;
+}
+
+.parrafo1{
+    bottom:200px ;
+    left: 255px;
+    color: white;
+    font-size: 20px;
+}
+
+
+.heat img{
+    width:750px ;
+    height:400px ;
+    position: relative;
+    bottom:120px ;
+    left:220px ;
+    opacity:0.6 ;
+    border-radius:15px ;
+    }
+
+.heat h2{
+    bottom:150px ;
+    left: 255px;
+    color: white;
+}
+
+.parrafo2{
+    bottom:110px ;
+    left: 255px;
+    color: white;
+    font-size: 20px;
+}
+
+
+
+
+.articulo p{
+    position: relative;
+    right:1300px ;
+    
+}
+
+article h3{
+    position: relative;
+    right:700px ;
+  
+}
