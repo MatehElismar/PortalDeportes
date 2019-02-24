@@ -16,6 +16,9 @@ module.exports = (app)=>{
     app.get('/account', (req, res)=>{
         res.render('login');
     })
+    app.get('/junior', (req, res)=>{
+        res.render('admin');
+    })
     app.use('/account', require('./account'))
     app.use('/admin/:token', isLogged, require('./admin'))
     app.use('/teams/:token', isLogged, require('./teams'))
