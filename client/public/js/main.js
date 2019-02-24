@@ -1,7 +1,4 @@
 'use strict'
-import { login } from "../../../server/controllers/account";
-
- 
 
 // Funciones generales que se cargaran en toda la pagina
 
@@ -29,6 +26,10 @@ function ajaxSuccess(res, next){
     }
 }
 
+function showError(err){
+    console.log(err);
+}
+
 function login(){
     let login = formToJSON('#login-form')
     let token = localStorage.getItem('token')
@@ -43,5 +44,7 @@ function login(){
                 location = value.redirectURL;
             })
         }
+        ,
+        error: showError
     })
 }

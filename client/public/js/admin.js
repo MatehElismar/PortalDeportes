@@ -1,6 +1,17 @@
-'use strict'
+'use strict' 
 
-function updateTeam(){
+function selectOperation(op){
+    let submit = document.querySelector('#submit-btn')
+    if(op == 'add')
+        submit.addEventListener('click', addTeam)
+    else
+        submit.addEventListener('click', updateTeam)
+
+    // Activamos el formulario nuevamente
+    $("#team-form").children().prop("disabled",false);
+}
+
+function addTeam(){
     let team = formToJSON('#team-form')
     let token = localStorage.getItem('token')
     $.ajax({
@@ -9,105 +20,80 @@ function updateTeam(){
         body: team,
         "contentType": "application/json",
         success: (res)=>{
-            ajaxSuccess(res, (value)=>{
+            ajaxSuccess(res, (team)=>{
                 console.log(value)
+                alert('Elemento Agregado')
+                let tr = `
+                    <tr id=${team._id}>
+                        <th>${team.conf}</th> 
+                        <th>${team.name}</th> 
+                        <th>${team.G}</th> 
+                        <th>${team.P}</th> 
+                        <th>${team.PTC}</th> 
+                        <th>${team.PDL}</th> 
+                        <th>${team.rach}</th>
+                    </tr>
+                `
+                document.querySelector('#table-body')
+                .append(tr);
+                // Desabilitar el formulario
+                $("#team-form").children().prop("disabled",true);
+                // limpiamos los inputs
+                $('input').val('')
             })
         }
     })
 }
 
-function deleteTeam(){
-     let team = formToJSON('#team-form')
+function updateTeam(){
+    let team = formToJSON('#team-form')
     let token = localStorage.getItem('token')
     $.ajax({
         url: `/teams/${token}`,
-        type: 'POST',
+        type: 'PUT',
         body: team,
         "contentType": "application/json",
         success: (res)=>{
-            ajaxSuccess(res, (value)=>{
+            ajaxSuccess(res, (team)=>{
                 console.log(value)
+                alert('Elemento Actualizado')
+                let trHTML = `
+                        <th>${team.conf}</th> 
+                        <th>${team.name}</th> 
+                        <th>${team.G}</th> 
+                        <th>${team.P}</th> 
+                        <th>${team.PTC}</th> 
+                        <th>${team.PDL}</th> 
+                        <th>${team.rach}</th> 
+                `
+                document.querySelector(`#table-body #${team._id}`)
+                .innerHTML(trHTML);
+                // Desabilitar el formulario
+                $("#team-form").children().prop("disabled",true);
+                // limpiamos los inputs
+                $('input').val('')
             })
         }
     })
 }
 
-function getTeams(){
-   let token = localStorage.getItem('token')
+function deleteTeam(e){
+    if(confirm('Seguro desea eliminar este equipo de la lista?')){
+        let teamID = e.target.parentNode.id;
+        let token = localStorage.getItem('token')
+        $.ajax({
+                url: `/teams/${token}/${teamID}`,
+            type: 'DELETE',
+            body: team,
+            "contentType": "application/json",
+            success: (res)=>{
+                ajaxSuccess(res, (value)=>{
 
-    $.ajax({
-        url: `/teams/${token}`,
-        type: 'GET',  
-        success: (res)=>{
-            ajaxSuccess(res, (valueS)=>{
-                console.log(valueS)
-            })
-        }
-    })
+                    console.log(value)
+                    console.log('Equipo eliminado;')
+                })
+            }
+        })
+    }
 }
 
-function addConf(){
-     let conf = formToJSON('#conf-form')
-    let token = localStorage.getItem('token')
-    $.ajax({
-        url: `/conferences/${token}`,
-        type: 'POST',
-        body: conf,
-        "contentType": "application/json",
-        success: (res)=>{
-            ajaxSuccess(res, (value)=>{
-                console.log(value)
-            })
-        }
-    })
-}
-
-function updateConf(){
-    let conf = formToJSON('#conf-form')
-   let token = localStorage.getItem('token')
-
-   $.ajax({
-       url: `/conferences/${token}`,
-       type: 'PUT',
-       body: conf,
-       "contentType": "application/json",
-       success: (res)=>{
-           ajaxSuccess(res, (value)=>{
-               console.log(value)
-           })
-       }
-   })
-}
-
-function getConfs(){
-   let token = localStorage.getItem('token')
-
-   $.ajax({
-       url: `/conferences/${token}`,
-       type: 'GET',
-       success: (res)=>{
-           ajaxSuccess(res, (value)=>{
-               console.log(value)
-           })
-       }
-   })
-}
-
-function deleteConf(){
-
-   let token = localStorage.getItem('token')
-   let confID = ''//conferencia ID
-
-   $.ajax({
-       url: `/conferences/${token}/${confID}`,
-       type: 'DELETE',
-       success: (res)=>{
-           ajaxSuccess(res, (value)=>{
-               console.log(value)
-           })
-       },
-       error: (err)=>{
-           console.error(err);
-       }
-   })
-}
