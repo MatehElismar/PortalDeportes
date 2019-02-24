@@ -1,4 +1,5 @@
 'use strict'
+const isLogged = require('../helpers').account.verifyUserMidleware
 
 module.exports = (app)=>{
 
@@ -6,16 +7,16 @@ module.exports = (app)=>{
     app.get('/', (req, res)=>{
         res.render('index');
     })
-    app.get('/Equipos', (req, res)=>{
+    app.get('/equipos', (req, res)=>{
         res.render('posiciones');
     })
-    app.get('/Noticias', (req, res)=>{
+    app.get('/noticias', (req, res)=>{
         res.render('noticias');
     })
-   
-    app.use('/players', require('./players'))
     app.use('/account', require('./account'))
-    app.use('/admin', require('./admin'))
+    app.use('/admin/:token', isLogged, require('./admin'))
+    app.use('/teams/:token', isLogged, require('./teams'))
+    app.use('/conferences/:token', isLogged, require('./conferences'))
     
     
 }

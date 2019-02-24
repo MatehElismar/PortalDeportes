@@ -1,6 +1,6 @@
 const router = require('express').Router(),
 { admin } = require('../controllers') 
 
-router.get('/:token', admin.index) 
+router.get('/', admin.index) 
 
 module.exports = router; 

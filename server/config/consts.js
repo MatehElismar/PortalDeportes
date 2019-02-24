@@ -1,5 +1,7 @@
 'use strict'
 const mongoose = require('mongoose');
+// Uses the local DB
+process.env.NODE_ENV = 'dev'
 
 module.exports = {
     url: 'localhost',
@@ -9,10 +11,10 @@ module.exports = {
             // console.log('uri', )
             return await mongoose.connect(module.exports.db.uri, { useNewUrlParser: true })
             .then(res=>{
-                console.log(`Connected To DB :`, res.connections[0].name);
+                console.log(`Connected To DB : `+  res.connections[0 ].name+' in '+ module.exports.db.uri);
             })
             .catch(err=>{
-                console.error('There are some errors connecting to DB', err)
+                console.error('There are some errors connecting to DB '+ module.exports.db.uri, err)
             })  
         }
         

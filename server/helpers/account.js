@@ -14,6 +14,17 @@ module.exports = {
             token+= username[pos] 
         }
         console.log('token', token)
+        module.exports.token = token;
         return token;
+    },
+    
+    verifyUserMidleware : (req, res, next)=>{
+        if(req.params.token == module.exports.token){
+            req.user = module.exports.user;
+            next()
+        }
+        else{
+            res.status(401).send('Unautorized route')
+        }
     }
 }
