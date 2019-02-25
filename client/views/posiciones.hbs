@@ -1,8 +1,7 @@
 <div class="container">
     <table class="equipos">
-        <thead>
-            <tr>
-                <th>Conferencia</th> 
+       <thead>
+            <tr> 
                 <th>Equipo</th> 
                 <th>G</th> 
                 <th>P</th> 
@@ -11,41 +10,16 @@
                 <th>Rach</th>
             </tr>
         </thead>
-         <tr>
-           <td>Conferencia Este</td> 
-           <td>Bucks</td>
-           <td>44</td>
-           <td>14</td>
-           <td>.759</td>
-           <td>-</td>
-           <td>W3</td>
-        </tr>
-         <tr>
-        <td>Conferencia Este</td> 
-        <td>Bucks</td>
-        <td>44</td>
-        <td>14</td>
-        <td>.759</td>
-        <td>-</td>
-        <td>W3</td>
-            </tr>
-          <tr>
-            <td>Conferencia Este</td> 
-            <td>Bucks</td>
-            <td>44</td>
-            <td>14</td>
-            <td>.759</td>
-            <td>-</td>
-            <td>W3</td>
-            </tr>
-          <tr>
-           <td>Conferencia Este</td> 
-           <td>Bucks</td>
-           <td>44</td>
-           <td>14</td>
-           <td>.759</td>
-           <td>-</td>
-           <td>W3</td>
-            </tr>
+        <tbody class="table-body"> 
+            {{#each teams}} 
+            <tr id="{{this._id}}"> 
+            <td class="Equipo">{{this.name}}</td>
+            <td class="G">{{this.G}}</td>
+            <td class="P">{{this.P}}</td>
+            <td class="Ptc">{{this.PTC}}</td>
+            <td class="PDL">{{this.PDL}}</td>
+            <td class="Rach">{{this.rach}}</td>\
+            {{/each}}
+        </tbody> 
     </table>
 </div>

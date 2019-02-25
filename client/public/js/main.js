@@ -17,6 +17,13 @@ async function formToJSON(formID){
 
 }
 
+function jsonToForm(json, formID){
+    let form = document.querySelector(formID); 
+    Object.keys(json).forEach(key=>{ 
+        form.elements[key].value = json[key]; 
+    })
+}
+
 function ajaxSuccess(res, next){
     if(res.ok){
        next(res)
@@ -30,13 +37,14 @@ function showError(err){
     console.log(err);
 }
 
-function login(){
-    let login = formToJSON('#login-form')
-    let token = localStorage.getItem('token')
+async function login(){
+    let login = await formToJSON('#login-form') 
+    console.log(login)
+
     $.ajax({
-        url: `/teams/${token}`,
+        url: `/account/login`,
         type: 'POST',
-        body: login,
+        data: JSON.stringify(login),
         "contentType": "application/json",
         success: (res)=>{
             ajaxSuccess(res, (value)=>{
