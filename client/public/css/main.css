@@ -22,6 +22,18 @@
     float: right;
 }
 
+.section-left{
+    float: left;  
+    width: 70%;
+    margin-bottom: 30px;
+}
+
+.aside{
+    float:right;
+    width: 30%;
+    margin-bottom: 70px;
+}
+
 
 .titulo label {
     color:#c46b6b;
@@ -35,10 +47,8 @@
 }
 
 .junior{
-    color:white;
-    position: relative;
-    bottom: 250px;
-    left: 225px;
+    color:white;  
+    text-align: center;
     font-family: inherit ;
     font-size:70px ;
 }
@@ -220,30 +230,15 @@ aside{
 	100% {margin-left: -300%;}
 }
 
-.video1{
-    position: relative;
- bottom: 200px;
-    left:130px ;
-}
-
-.video2{
-    position: relative;
-    bottom: 175px;
-    left:130px ;
-    
-}
-
-.video3{
-    position: relative;
-    bottom:150px;
-    left:130px ;
+.video{
+    margin-bottom: 50px;
 }
 
 /*Stilos de la tabla*/
 .equipos{
     background-color: white;
     position: relative;
-    bottom: 370px;
+    bottom: 450px;
     margin: 150px auto;
     width:900px;
     font-family: Arial, Helvetica, sans-serif;
