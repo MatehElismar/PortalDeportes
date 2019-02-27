@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 /*process.env.NODE_ENV = 'dev'*/
 
 module.exports = {
-    url: 'http://localhost',
+    url: 'http://localhost:4000',
     db: {
         uri: (process.env.NODE_ENV == 'dev')? 'mongodb://localhost/baseball' : 'mongodb://mateh:junior01@ds159978.mlab.com:59978/baseball',
         initializeDB: async ()=>{
