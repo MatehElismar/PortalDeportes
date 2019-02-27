@@ -7,8 +7,7 @@ const TeamSchema = new mongoose.Schema({
     P: {type: Number, required: true},
     PTC: {type: Number, required: true},
     PDL: {type: Number, required: true},
-    rach: {type: Number, required: true},
-    idConf: {type: ObjectId, required: true}
+    rach: {type: Number, required: true}, 
 }, { 
     toObject : {getters: true},
     toJSON : {getters: true}

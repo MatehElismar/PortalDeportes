@@ -1,9 +1,11 @@
 'use strict' 
 const helper = require('../helpers').account;
+const { Team } = require('../models');
 
 const ctrl = {}
 ctrl.index = async (req, res)=>{ 
-  res.render('admin')
+  let teams = await Team.find();
+res.render('admin', { teams })
 }
 
 

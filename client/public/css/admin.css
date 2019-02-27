@@ -1,0 +1,86 @@
+/*stilos admin*/
+
+.adminedit{
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    color:white;
+}
+table{
+    text-align: left;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,td{
+    padding: 10px;
+}
+thead{
+    background-color: #246355;
+    border-bottom: solid 5px #0f362D;
+    color:rgb(108, 209, 176);
+}
+
+tr:nth-child(even){
+    background-color: #ddd;
+}
+tr:hover td{
+    background-color: #369681;
+}
+
+.editar{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #369681;
+    border-radius: 6px;
+    border: 2px solid white;
+  }
+  .editar:hover{
+    color: #369681;
+    background-color:#0f362D;
+  }
+
+  .borrar{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #369681;
+    border-radius: 6px;
+    border: 2px solid white;
+  }
+  .borrar:hover{
+    color: #369681;
+    background-color: #0f362D;
+  }
+  
+  .formulario label{
+      color: white;
+      font-size: 40px;
+      
+  }
+
+  .adminedit{
+    width: 60%; 
+}
+
+.formulario{ 
+    margin-bottom: 55px;
+}
+
+  .controles{
+      align-content: center;
+      width: 90%;
+      top:20px;
+      text-align: center;
+      right:175px ;
+      background-color: transparent;
+  }
+  
+.radiobtn label{
+    background-color: transparent;
+    font-size: 20px;
+}

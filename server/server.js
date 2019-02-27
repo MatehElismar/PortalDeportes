@@ -11,7 +11,7 @@ path = require('path');
 const app = express();
 
 //Settings
-app.set('port', process.env.PORT || 80);
+app.set('port', process.env.PORT || 4000);
 app.set('views', path.join(__dirname, '../client/views'))
 app.set('view engine', '.hbs')
 //Midlewares
@@ -34,7 +34,7 @@ consts.db.initializeDB()
 .then(res=>{
     //Run the http server
     app.listen(app.get('port'), (hostname)=>{
-        console.log(`Server running on ${hostname || 'localhost'}:${app.get('port')}`);
+        console.log(`Server running on http://${hostname || 'localhost'}:${app.get('port')}`);
     })
 })
 

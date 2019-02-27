@@ -1,8 +1,13 @@
-<div class="container">
-    <table class="adminedit">
+<link rel="stylesheet" href="{{url}}/public/css/admin.css">
+
+<div class="cont" style="
+    position: relative;
+    bottom:230px ;">
+
+<div class="clear container">
+    <table class="adminedit left">
         <thead>
-            <tr>
-                <th>Conferencia</th> 
+            <tr> 
                 <th>Equipo</th> 
                 <th>G</th> 
                 <th>P</th> 
@@ -12,75 +17,46 @@
                 <th>Acciones</th>
             </tr>
         </thead>
-         <tr>
-           <td>Conferencia Este</td> 
-           <td>Bucks</td>
-           <td>44</td>
-           <td>14</td>
-           <td>.759</td>
-           <td>-</td>
-           <td>W3</td>
-            <td><input class="editar"  type="submit" value="Editar"> <input class="borrar"  type="submit" value="Borrar"> </td> 
-          
-        </tr>
-         <tr>
-        <td>Conferencia Este</td> 
-        <td>Bucks</td>
-        <td>44</td>
-        <td>14</td>
-        <td>.759</td>
-        <td>-</td>
-        <td>W3</td>
-        <td><input class="editar" type="submit" value="Editar"> <input class="borrar" type="submit" value="Borrar"> </td> 
+        <tbody class="table-body"> 
+            {{#each teams}} 
+            <tr id="{{this._id}}"> 
+            <td class="Equipo">{{this.name}}</td>
+            <td class="G">{{this.G}}</td>
+            <td class="P">{{this.P}}</td>
+            <td class="Ptc">{{this.PTC}}</td>
+            <td class="PDL">{{this.PDL}}</td>
+            <td class="Rach">{{this.rach}}</td>
+            <td class="Acciones">
+                <a onclick="goEdit('{{this._id}}')" class="editar">Editar</a> 
+                <a onclick="deleteTeam('{{this._id}}')" class="borrar">Borrar</a>
+            </td>  
             </tr>
-          <tr>
-            <td>Conferencia Este</td> 
-            <td>Bucks</td>
-            <td>44</td>
-            <td>14</td>
-            <td>.759</td>
-            <td>-</td>
-            <td>W3</td>
-         <td><input class="editar" type="submit" value="Editar"> <input class="borrar"  type="submit" value="Borrar"> </td> 
-            </tr>
-          <tr>
-           <td>Conferencia Este</td> 
-           <td>Bucks</td>
-           <td>44</td>
-           <td>14</td>
-           <td>.759</td>
-           <td>-</td>
-           <td>W3</td>
-        <td><input class="editar"  type="submit" value="Editar"> <input class="borrar"  type="submit" value="Borrar"> </td> 
-            </tr>
-            
+            {{/each}}
+        </tbody> 
     </table>
 </div>
 
 
-<div class="formulario">
-
-<label for="">Team-Form</label> 
-
-<div class="controles">
-    <input class="un" type="text" placeholder="Equipo" name="" id="">
-    <input class="un" type="text" placeholder="G" name="" id="">
-    <input class="un" type="text" placeholder="P" name="" id="">
-    <input class="un" type="text" placeholder="PTC" name="" id="">
-    <input class="un" type="text" placeholder="PDL" name="" id="">
-    <input class="un" type="text" placeholder="RACH" name="" id="">
-    <input class="editar"  type="submit" value="Insertar">
-</div>
-
-<div class="radiobtn">
-    <label class="ubi">
-    <input  type="radio" name="" id="" value="Confeste">Conferencia Este
-    </label>
-    <label class="ubica">
-    <input type="radio" name="" id="" value="Confoeste">Conferencia Oeste
-    </label>
+<div class="formulario right"> 
+    <form id="team-form" method="POST"> 
+        <input type="hidden" name="_id" value="">
+        <label for="">Team-Form</label>  
+        <div class="controles">
+            <div><input class="un" type="text" placeholder="Equipo" name="name" id=""></div>
+            <div><input class="un" type="text" placeholder="G" name="G" id=""></div>
+            <div><input class="un" type="text" placeholder="P" name="P" id=""></div>
+            <div><input class="un" type="text" placeholder="PTC" name="PTC" id=""></div>
+            <div><input class="un" type="text" placeholder="PDL" name="PDL" id=""></div>
+            <div><input class="un" type="text" placeholder="RACH" name="rach" id=""></div>
+            <div>
+                <a onclick="submit(event)" id="submit-btn" class="editar"  type="submit">Insertar</a>
+            </div>
+        </div>
+    </form> 
 </div>
 
 </div>
 
+
+<script src="{{url}}/public/js/admin.js"></script>
 
