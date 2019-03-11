@@ -4,34 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT" rel="stylesheet">
     <link rel="stylesheet" href="/public/css/main.css">
+    {{!-- datatables plugin --}}
+    {{!-- <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"> --}}
     <title>Portal De Deportes</title>
 </head>
-<body>
-    <!-- E2 - Portal de deportes
- -->
-    <header>
+<body> 
+     {{!-- <header>
         <nav>
-            <a class="logo" href="/" class=""><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgM7pYJo01Og_HPw-n4fKQ3feL0QitbLLREoX9BF_rZwuujO1d" alt="LOGO"></a>
+             <div class="left">
+                <div class="imglogo">
+                    <a class="" href="/" class=""><img src="public/imgs/logo.png" alt="logo"></a>
+                </div>
+            </div> 
+            <div>
+            <span class="titulo">Inplay Sports
+                <a class="logo right" href="/login" class=""><img src="public/imgs/login.png" alt="login"></a>
+            </span>
+            </div>
+             <div class="nav">
+                <a href="/">Home</a>
+                <a href="/equipos"> Equipos</a>
+                <a href="/noticias"> Noticias</a> 
+             </div> 
+            
+        </nav>
+        
+        </div> 
+    </header>  --}}
+    <header>
+        <nav> 
+            <a class="logo" href="/">InPlay Sports</a>
             <a href="/">Home</a>
             <a href="/equipos"> Equipos</a>
-             <a href="/noticias"> Noticias</a>   
+            <a href="/noticias"> Noticias</a>  
+            <div class="right">
+                 <a class="login" href="/login" class=""></a> 
+            </div>  
         </nav>
-        <div class="titulo"><label for="">Revista Inplay</label></div>
-        </div>
-            <div class="Login">
-                <a class="logo" href="/login" class=""><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQofLl1bkVqUZuVcTQiRBl5UNcjnFgb9n-NQ_Dt8rWl8pepMxDx" alt="LOGO"></a>
-            </div>
-            <div class="imglogo">
-                <a class="logo" href="/" class=""><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIP15X3ewboS274HXBLZllpBpa4d0fAxa_4H9Wx02COHKuaVBz" alt="LOGO"></a>
-            </div>
     </header>
 {{!-- Aqui se mostraran las demas vistas --}}
     {{{body}}}
-    <div class="footer">
-       junior jeramer polanco silvestre | 2017-0319 </br> Marlyn Elismar Pimentel | 2017-0077
-    </div>
+     <footer>
+       Marlyn Elismar Pimentel (2017-0077)   &   junior jeramer polanco silvestre (2017-0319)  
+     </footer>
     <script src="{{url}}/public/lib/jquery/dist/jquery.js"></script>
     <script src="{{url}}/public/js/main.js"></script>
+    {{!-- datatables js --}}
+    {{!-- <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script> --}}
+    {{!-- Se aplicara a todas los elementos con clase 'equipos' --}}
+    {{!-- <script>
+        $(document).ready( function () {
+        $('.equipos').DataTable();
+    });
+    </script> --}}
 </body>
 </html>

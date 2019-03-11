@@ -1,11 +1,6 @@
-<link rel="stylesheet" href="{{url}}/public/css/admin.css">
-
-<div class="cont" style="
-    position: relative;
-    bottom:230px ;">
-
+<link rel="stylesheet" href="{{url}}/public/css/admin.css"> 
 <div class="clear container">
-    <table class="adminedit left">
+    <table class="equipos left">
         <thead>
             <tr> 
                 <th>Equipo</th> 
@@ -34,29 +29,25 @@
             {{/each}}
         </tbody> 
     </table>
-</div>
 
 
 <div class="formulario right"> 
     <form id="team-form" method="POST"> 
         <input type="hidden" name="_id" value="">
-        <label for="">Team-Form</label>  
-        <div class="controles">
-            <div><input class="un" type="text" placeholder="Equipo" name="name" id=""></div>
-            <div><input class="un" type="text" placeholder="G" name="G" id=""></div>
-            <div><input class="un" type="text" placeholder="P" name="P" id=""></div>
-            <div><input class="un" type="text" placeholder="PTC" name="PTC" id=""></div>
-            <div><input class="un" type="text" placeholder="PDL" name="PDL" id=""></div>
-            <div><input class="un" type="text" placeholder="RACH" name="rach" id=""></div>
+        <label for="">Mantenimiento de Equipos</label>  
+            <div><input type="text" placeholder="Equipo" name="name" id=""></div>
+            <div><input type="text" placeholder="G" name="G" id=""></div>
+            <div><input type="text" placeholder="P" name="P" id=""></div>
+            <div><input type="text" placeholder="PTC" name="PTC" id=""></div>
+            <div><input type="text" placeholder="PDL" name="PDL" id=""></div>
+            <div><input type="text" placeholder="RACH" name="rach" id=""></div>
             <div>
-                <a onclick="submit(event)" id="submit-btn" class="editar"  type="submit">Insertar</a>
-            </div>
-        </div>
+                <a onclick="submit(event)" id="submit-btn" class="submit" align="center"  type="submit">Insertar</a>
+            </div> 
     </form> 
-</div>
+</div> 
 
 </div>
-
 
 <script src="{{url}}/public/js/admin.js"></script>
 

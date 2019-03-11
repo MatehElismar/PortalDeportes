@@ -1,19 +1,26 @@
-/*Stilos del formulario login*/
 
-.formulogin{
-    position: relative;
-    left:230px ;
-    bottom:150px ;
+.formulogin{ 
+    background: url(/public/imgs/bg-login.jpg);
+    width: 300px;
+    height: 250px;
+    border: 2px solid white;
+    background-position: center center;
+    margin:  0px auto 100px auto; 
+}  
+        
+.sign { 
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    font-size: 40px;
+} 
+
+.opacity{
+    width: 100%;
+    height: 100%;
+    /* background: rgba(255, 255, 255); */
 }
-
-.formulogin img{
-   opacity: 0.4;
-   border-radius: 20px;
-}
-
-
-
-
+        /*
 .main {
     background-color: #FFFFFF;
     color: white;
@@ -21,72 +28,13 @@
     height: 50px;
     margin: 7em auto;
     border-radius: 2px;
-    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
-    position: relative;
-    bottom:550px ;
-    right:250px ;
-    background-color: transparent;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14); 
+    background-color: transparent; 
 
-}
-
-.sign {
-    padding-top: 40px;
-    color: white;
-    font-family: 'Ubuntu', sans-serif;
-    font-weight: bold;
-    font-size: 40px;
-    background-color: transparent;
-    position: relative;
-    bottom: 40px;
-}
+ } 
 
 
 
-form.form1 {
-    padding-top: 40px;
-    
-}
-
-.pass {
-        width: 76%;
-        
-color: rgb(38, 50, 56);
-font-weight: 600;
-font-size: 16px;
-letter-spacing: 1px;
-background: black;
-padding: 10px 20px;
-border: none;
-border-radius: 15px;
-outline: none;
-box-sizing: border-box;
-border: 2px solid white;
-margin-bottom: 50px;
-margin-left: 46px;
-text-align: center;
-margin-bottom: 27px;
-font-family: 'Ubuntu', sans-serif;
-top:10px;
-}
-
-
-.submit {
-  cursor: pointer;
-    border-radius: 10px;
-    color: #fff;
-    background: #0f362D;
-    border: 0;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    font-family: 'Ubuntu', sans-serif;
-    margin-left: 33%;
-    font-size: 15px;
-    box-shadow: 0 0 20px 1px white;
-    position: relative;
-    top:30px;
-}
 
 .forgot {
     text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
@@ -104,4 +52,4 @@ a {
     .main {
         border-radius: 0px;
     }
-}
+} */

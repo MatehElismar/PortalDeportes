@@ -1,62 +1,29 @@
-
-.golden img{
+ 
+.article img{
     width:750px ;
-    height:400px ;
-    position: relative;
-    bottom:230px ;
-    left:220px ;
+    height:400px ; 
     opacity:0.6 ;
     border-radius:15px ;
     }
+
+.article h2{ 
+    color: white;
+}
+
+.article p{ 
+    color: white;
+    font-size: 20px;
+}
+
+
+.articulo p{
+    position: relative;
+    right:1300px ;
     
-    h2{
-        bottom:250px ;
-        left: 255px;
-        color: white;
-    }
+}
+
+article h3{
+    position: relative;
+    right:700px ;
     
-    .parrafo1{
-        bottom:200px ;
-        left: 255px;
-        color: white;
-        font-size: 20px;
-    }
-    
-    
-    .heat img{
-        width:750px ;
-        height:400px ;
-        position: relative;
-        bottom:120px ;
-        left:220px ;
-        opacity:0.6 ;
-        border-radius:15px ;
-        }
-    
-    .heat h2{
-        bottom:150px ;
-        left: 255px;
-        color: white;
-    }
-    
-    .parrafo2{
-        bottom:110px ;
-        left: 255px;
-        color: white;
-        font-size: 20px;
-    }
-    
-    
-    
-    
-    .articulo p{
-        position: relative;
-        right:1300px ;
-        
-    }
-    
-    article h3{
-        position: relative;
-        right:700px ;
-      
-    }
+}
