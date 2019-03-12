@@ -1,12 +1,20 @@
 
 .formulogin{ 
     background: url(/public/imgs/bg-login.jpg);
-    width: 300px;
-    height: 250px;
+    width: 500px;
+    height: 330px;
     border: 2px solid white;
     background-position: center center;
     margin:  0px auto 100px auto; 
 }  
+
+.formulogin form{
+    margin-top: 70px;
+}
+
+.formulogin input{
+    /* margin-top: */
+}
         
 .sign { 
     color: white;
@@ -18,7 +26,7 @@
 .opacity{
     width: 100%;
     height: 100%;
-    /* background: rgba(255, 255, 255); */
+    background: rgba(100, 6, 6, 0.4);
 }
         /*
 .main {
