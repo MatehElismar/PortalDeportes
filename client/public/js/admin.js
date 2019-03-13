@@ -41,21 +41,19 @@ async function addTeam(){
                 alert('Elemento Agregado')
                 let tr = `
                     <tr id="${team._id}"> 
-                        <th>${team.name}</th> 
-                        <th>${team.G}</th> 
-                        <th>${team.P}</th> 
-                        <th>${team.PTC}</th> 
-                        <th>${team.PDL}</th> 
-                        <th>${team.rach}</th>
+                        <td class="Equipo">${team.name}</td> 
+                        <td class="G">${team.G}</td> 
+                        <td class="P">${team.P}</td> 
+                        <td class="Ptc">${team.PTC}</td> 
+                        <td class="PDL">${team.PDL}</td> 
+                        <td class="Rach">${team.rach}</td>
                         <td class="Acciones">
                             <a onclick="goEdit('${team._id}')" class="editar">Editar</a> 
                             <a onclick="deleteTeam('${team._id}')" class="borrar">Borrar</a>
                         </td> 
                     </tr>
                 `
-                $('.table-body').append(tr);
-                // Desabilitar el formulario
-                $("#team-form").children().prop("disabled",true);
+                $('.table-body').append(tr); 
                 // limpiamos los inputs
                 $('input').val('')
             })
@@ -67,7 +65,7 @@ async function updateTeam(){
     let team = await formToJSON('#team-form')
     let token = localStorage.getItem('token')
 
-    console.log(team)
+    console.log('TEAM TO UPDATE',team)
     $.ajax({
         url: `/teams/${token}`,
         type: 'PUT',
@@ -78,12 +76,12 @@ async function updateTeam(){
                 team = res.updatedTeam 
                 alert('Elemento Actualizado')
                 let trHTML = ` 
-                        <th>${team.name}</th> 
-                        <th>${team.G}</th> 
-                        <th>${team.P}</th> 
-                        <th>${team.PTC}</th> 
-                        <th>${team.PDL}</th> 
-                        <th>${team.rach}</th>
+                        <th class="Equipo">${team.name}</th> 
+                        <th class="G">${team.G}</th> 
+                        <th class="P">${team.P}</th> 
+                        <th class="Ptc">${team.PTC}</th> 
+                        <th class="PDL">${team.PDL}</th> 
+                        <th class="Rach">${team.rach}</th>
                         <td class="Acciones">
                             <a onclick="goEdit('${team._id}')" class="editar">Editar</a> 
                             <a onclick="deleteTeam('${team._id}')" class="borrar">Borrar</a>
@@ -91,10 +89,9 @@ async function updateTeam(){
                 `
                 console.log(team)
                 $(`.table-body #${team._id}`).html(trHTML);
-                // Desabilitar el formulario
-                $("#team-form").children().prop("disabled",true);
                 // limpiamos los inputs
                 $('input').val('')
+                $('#submit-btn').html('Agregar')
             })
         }
     })

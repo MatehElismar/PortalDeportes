@@ -4,8 +4,15 @@ const { Team, Conference } = require('../models')
 
 module.exports = {
     validate : async (team, res, next)=>{
+        
         let result = await Team.findOne({name: team.name})
         if(result){
+            if(team.update)
+            {
+                console.log(team)
+                next(team)
+                return;
+            }
             // Existe un equipo con este nombre
             res.json({ok: false, msg: "There is another team using this name..."})
         } 

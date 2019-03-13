@@ -32,8 +32,10 @@ ctrl.add = (req, res)=>{
     } )
 }
 
-ctrl.update = (req, res)=>{ 
-    teams.validate(req.body, res, async (valueToUpdate)=>{
+ctrl.update = (req, res)=>{
+    let tea = req.body;
+    tea.update = true; 
+    teams.validate(tea, res, async (valueToUpdate)=>{
         let team = await Team.findOne({_id: valueToUpdate._id})
         if(team){
 
@@ -53,7 +55,7 @@ ctrl.update = (req, res)=>{
         }
         else  res.json({
             ok: false,
-            msg: 'Esta conferencia no existe'
+            msg: 'Este equipo no existe'
         })        
     })
 }
