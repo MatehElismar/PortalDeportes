@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="{{url}}/public/css/admin.css"> 
+<script src="validacion.js"></script>
 <div class="clear container">
     <table class="equipos left">
         <thead>
@@ -31,23 +32,26 @@
     </table>
 
 
-<div class="formulario right"> 
+<div class="formulario right" id="form"> 
     <form id="team-form" method="POST"> 
         <input type="hidden" name="_id" value="">
         <label for="">Mantenimiento de Equipos</label>  
-            <div><input type="text" placeholder="Equipo" name="name" id=""></div>
-            <div><input type="text" placeholder="G" name="G" id=""></div>
-            <div><input type="text" placeholder="P" name="P" id=""></div>
-            <div><input type="text" placeholder="PTC" name="PTC" id=""></div>
-            <div><input type="text" placeholder="PDL" name="PDL" id=""></div>
-            <div><input type="text" placeholder="RACH" name="rach" id=""></div>
+            <div><input type="text" placeholder="Equipo" name="name" id="equipo"></div>
+            <div><input type="text" placeholder="G" name="G" id="g"></div>
+            <div><input type="text" placeholder="P" name="P" id="p"></div>
+            <div><input type="text" placeholder="PTC" name="PTC" id="ptc"></div>
+            <div><input type="text" placeholder="PDL" name="PDL" id="pdl"></div>
+            <div><input type="text" placeholder="RACH" name="rach" id="rach"></div>
             <div>
                 <a onclick="submit(event)" id="submit-btn" class="submit" align="center"  type="submit">Insertar</a>
             </div> 
     </form> 
+
 </div> 
 
+
 </div>
+   
 
 <script src="{{url}}/public/js/admin.js"></script>
 

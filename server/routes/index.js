@@ -18,6 +18,10 @@ module.exports = (app)=>{
         res.render('noticias');
     })
 
+    app.get('/graficas', (req, res)=>{
+        res.render('graficas');
+    })
+
     app.get('/login', (req, res)=>{
         res.render('login');
     })

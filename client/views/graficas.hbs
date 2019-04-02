@@ -1,0 +1,47 @@
+ <script src="https://d3js.org/d3.v5.min.js"></script>
+<link rel="stylesheet" href="{{url}}/public/css/graficas.css">
+<h1>Juegos Ganados Por Equipos</h1>
+<svg></svg>
+<script>
+    
+    pulso = [50, 53, 49, 46, 46, 39, 39,38] 
+
+var svgWidth = 500, svgHeight = 300, barPadding = 5;
+var barWidth = svgWidth / pulso.length;
+var svg = d3.select('svg')
+    .attr("width", svgWidth)
+    .attr("height", svgHeight);
+    
+var barChart = svg.selectAll("rect")
+    .data(pulso)
+    .enter()
+    .append("rect")
+    .attr("y", function(d) {
+         return svgHeight - d 
+    })
+    .attr("height", function(d) { 
+        return d; 
+    })
+    .attr("width", barWidth - barPadding)
+    .attr("class", "bar")
+    .attr("transform", function (d, i) {
+        var translate = [barWidth * i, 0]; 
+        return "translate("+ translate +")";
+    });
+
+var text = svg.selectAll("text")
+    .data(pulso)
+    .enter()
+    .append("text")
+    .text(function(d) {
+        return d;
+    })
+    .attr("y", function(d, i) {
+        return svgHeight - d - 2;
+    })
+    .attr("x", function(d, i) {
+        return barWidth * i;
+    })
+    .attr("fill", "#F0B27A");
+ 
+</script>
