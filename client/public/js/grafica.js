@@ -1,6 +1,6 @@
 
 $.ajax({
-    url:"http//localhost:4000/teams",
+    url:"http://localhost:4000/teams",
     type:"GET",
     success:(res)=>{
         ajaxSuccess(res,function(res){
@@ -11,15 +11,16 @@ $.ajax({
     for (let i = 0; i < datos.length; i++) {
          bestPlayer.push(datos[i].G);
     }
+            var count = -1;
 
-            var svgWidth = 500, svgHeight = 300, barPadding = 5;
-            var barWidth = svgWidth / datos.length;
+            var svgWidth = 700, svgHeight = 300, barPadding = 30;
+            var barWidth = svgWidth / bestPlayer.length;
             var svg = d3.select('svg')
                 .attr("width", svgWidth)
                 .attr("height", svgHeight);
                 
             var barChart = svg.selectAll("rect")
-                .data(datos)
+                .data(bestPlayer)
                 .enter()
                 .append("rect")
                 .attr("y", function(d) {
@@ -36,11 +37,12 @@ $.ajax({
                 });
             
             var text = svg.selectAll("text")
-                .data(datos)
+                .data(bestPlayer)
                 .enter()
                 .append("text")
                 .text(function(d) {
-                    return d;
+                    count++;
+                    return datos[count].name;
                 })
                 .attr("y", function(d, i) {
                     return svgHeight - d - 2;

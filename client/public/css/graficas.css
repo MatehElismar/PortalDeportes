@@ -1,9 +1,14 @@
 svg{
-    width: 496px;
+    width: 700px;
     height: 300px;
     margin-bottom: 100px;
     margin-left: 370px;
     background-color: rgba(192, 141, 141, 0.233);
+}
+
+text{
+    font-size: 15px;
+    transform: rotateZ(-3deg);
 }
 
 h1{

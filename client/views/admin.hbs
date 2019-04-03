@@ -33,17 +33,18 @@
 
 
 <div class="formulario right" id="form"> 
-    <form id="team-form" method="POST"> 
+    <form id="team-form"> 
         <input type="hidden" name="_id" value="">
         <label for="">Mantenimiento de Equipos</label>  
-            <div><input type="text" placeholder="Equipo" name="name" id="equipo"></div>
-            <div><input type="text" placeholder="G" name="G" id="g"></div>
-            <div><input type="text" placeholder="P" name="P" id="p"></div>
-            <div><input type="text" placeholder="PTC" name="PTC" id="ptc"></div>
-            <div><input type="text" placeholder="PDL" name="PDL" id="pdl"></div>
-            <div><input type="text" placeholder="RACH" name="rach" id="rach"></div>
+            <div><input type="text" placeholder="Equipo" name="name" id="equipo" required></div>
+            <div><input type="number" placeholder="G" name="G" id="g" required></div>
+            <div><input type="number" placeholder="P" name="P" id="p" required></div>
+            <div><input type="number" placeholder="PTC" name="PTC" id="ptc" required></div>
+            <div><input type="number" placeholder="PDL" name="PDL" id="pdl" required></div>
+            <div><input type="number" placeholder="RACH" name="rach" id="rach" required></div>
             <div>
-                <a onclick="submit(event)" id="submit-btn" class="submit" align="center"  type="submit">Insertar</a>
+                <input id="submit-btn" class="submit" align="center" type="submit" value="Insertar">
+                {{!-- <a   type="submit">Insertar</a> --}}
             </div> 
     </form> 
 

@@ -1,7 +1,7 @@
 'use strict' 
 
 function goEdit(teamID){ 
-    $('#submit-btn').html('Editar');
+    $('#submit-btn').val('Editar');
     let team = {};
     console.log('eso', teamID)
     // team.Conferencia = $(`#${teamID} .Conferencia`);
@@ -16,8 +16,10 @@ function goEdit(teamID){
     jsonToForm(team, '#team-form');
 }
 
+
 function submit(e){ 
-    if($('#submit-btn').html() == 'Editar'){
+    e.preventDefault()
+    if($('#submit-btn').val() == 'Editar'){
         // Edit modo
         updateTeam();
     }
@@ -25,7 +27,10 @@ function submit(e){
         // Add Modo
         addTeam();
     } 
+    return false;
 }
+
+$("#team-form").submit(submit);
 
 async function addTeam(){
     let team = await formToJSON('#team-form')
