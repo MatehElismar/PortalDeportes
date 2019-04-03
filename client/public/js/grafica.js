@@ -13,13 +13,13 @@ $.ajax({
     }
 
             var svgWidth = 500, svgHeight = 300, barPadding = 5;
-            var barWidth = svgWidth / datos.length;
+            var barWidth = svgWidth / bestPlayer.length;
             var svg = d3.select('svg')
                 .attr("width", svgWidth)
                 .attr("height", svgHeight);
                 
             var barChart = svg.selectAll("rect")
-                .data(datos)
+                .data(bestPlayer)
                 .enter()
                 .append("rect")
                 .attr("y", function(d) {
@@ -36,7 +36,7 @@ $.ajax({
                 });
             
             var text = svg.selectAll("text")
-                .data(datos)
+                .data(bestPlayer)
                 .enter()
                 .append("text")
                 .text(function(d) {
