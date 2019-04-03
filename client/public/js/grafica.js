@@ -1,10 +1,11 @@
 
 $.ajax({
-    url:"http//localhost:4000/teams",
+    url:"http://localhost:4000/teams",
     type:"GET",
     success:(res)=>{
         ajaxSuccess(res,function(res){
-            var datos= res.data;
+            var datos= res.teams;
+            console.log(datos)
     var bestPlayer = []
             
     for (let i = 0; i < datos.length; i++) {

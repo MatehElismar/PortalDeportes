@@ -1,7 +1,7 @@
 'use strict'
 const isLogged = require('../helpers').account.verifyUserMidleware
 const { Team } = require('../models')
-
+const { team } = require('../controllers')
 module.exports = (app)=>{
 
     // Ruta Principal De La Aplicacion.
@@ -30,6 +30,7 @@ module.exports = (app)=>{
     app.use('/account', require('./account'))
     app.use('/admin/:token', isLogged, require('./admin'))
     app.use('/teams/:token', isLogged, require('./teams')) 
+    app.get('/teams/', team.index)
     
     
 }
