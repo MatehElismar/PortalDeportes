@@ -1,10 +1,10 @@
 'use strict'
-const { teams } = require('../helpers'),
+const { teams, db } = require('../helpers'),
 { Team, Conference } = require('../models');
 
 const ctrl = {}
 ctrl.index = async (req, res)=>{
-    let teams = await Team.find();
+    let teams = await Team.find().catch(db.catchError);
     res.json({
         ok: true,
         teams
@@ -23,7 +23,7 @@ ctrl.add = (req, res)=>{
             rach: body.rach
         })
 
-       let team = await newTeam.save()
+       let team = await newTeam.save().catch(db.cathError)
     //    We send the team with de dbID
        res.json({
            ok: true,
@@ -39,7 +39,7 @@ ctrl.update = (req, res)=>{
         let team = await Team.findOne({_id: valueToUpdate._id})
         if(team){
 
-            let result = await Team.updateOne({_id: valueToUpdate._id}, valueToUpdate)
+            let result = await Team.updateOne({_id: valueToUpdate._id}, valueToUpdate).catch(db.catchError)
             //    We send the team with the changes
             if(result.ok > 0)
                 res.json({
@@ -61,7 +61,8 @@ ctrl.update = (req, res)=>{
 }
 
 ctrl.delete = async (req, res)=>{
-    let result = await Team.findOneAndRemove({_id: req.params._id})
+    let result = await Team.findOneAndRemove({_id: req.params._id}).catch(db.cathError)
+    
     res.json({
         ok: true,
         'result': result

@@ -2,5 +2,6 @@
 
 module.exports = {
     teams : require('./teams'),
-    account : require('./account')
+    account : require('./account'),
+    db : require('./db'),
 }

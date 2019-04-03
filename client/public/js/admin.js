@@ -100,11 +100,14 @@ async function updateTeam(){
 function deleteTeam(teamID){
     if(confirm('Seguro desea eliminar este equipo de la lista?')){ 
         let token = localStorage.getItem('token')
+
+    
         $.ajax({
-                url: `/teams/${token}/${teamID}`,
+            url: `/teams/${token}/${teamID}`,
             type: 'DELETE',
             success: (res)=>{  
-                ajaxSuccess(res, (res)=>{
+                ajaxSuccess(res, (res)=>{ 
+
                   location.reload()
                 })
             }
